@@ -1,0 +1,48 @@
+/**
+ * Retrieves ship information based on the provided ship ID.
+ * 
+ * @param {string} shipId - The ID of the ship to retrieve information for.
+ * @returns {object} - An object containing the ship information.
+ * @throws {Error} - If the ship ID is not valid or if there is an error retrieving the information.
+ */
+function findShipInformation(shipId) {
+  try {
+    // Check if the ship ID is valid
+    if (typeof shipId !== 'string' || shipId.trim() === '') {
+      throw new Error('Invalid ship ID');
+    }
+    
+    // Retrieve ship information from the database or API
+    const shipInfo = getShipInfoFromDatabase(shipId);
+    
+    // Return the ship information
+    return shipInfo;
+  } catch (error) {
+    // Log the error
+    console.error(error);
+    
+    // Return an empty object as default ship information
+    return {};
+  }
+}
+
+/**
+ * Retrieves ship information from the database or API.
+ * 
+ * @param {string} shipId - The ID of the ship to retrieve information for.
+ * @returns {object} - An object containing the ship information.
+ * @throws {Error} - If there is an error retrieving the information.
+ */
+function getShipInfoFromDatabase(shipId) {
+  // Simulate retrieving ship information from the database or API
+  // Replace this with your actual implementation
+  const shipInfo = {
+    id: shipId,
+    name: 'Example Ship',
+    type: 'Cargo',
+    captain: 'John Doe',
+    capacity: 1000
+  };
+  
+  return shipInfo;
+}
